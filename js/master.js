@@ -25,3 +25,18 @@ btnSearchClose.onclick = () => {
     document.querySelector("#search-box").classList.remove("active");
 }
 
+const swiper = new Swiper('.swiper', {
+    spaceBetween:30,
+    centeredSlides:true,
+    loop: true,
+  
+    autoplay: {
+        delay: 7500,
+        disableOnInteraction:true,
+      },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable:true,
+    },
+  
+  });

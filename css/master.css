@@ -5,6 +5,7 @@
     border: 0;
     padding: 0;
     box-sizing: border-box;
+    text-decoration: none;
 }
 
 :root {
@@ -21,9 +22,10 @@ html {
     scroll-padding-top: 5.5rem;
     scroll-behavior: smooth;
 }
+/* Header Starts */
 
 header {
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     right: 0;
@@ -37,11 +39,50 @@ header {
 
 }
 
+section {
+    padding: 2rem 9%;
+}
+
+section:nth-child(even) {
+    background-color: #eee;
+}
+
+.btn {
+    background-color: var(--black);
+    color: #fff;
+    margin-top: 1rem;
+    display: inline-block;
+    font-size: 1.7rem;
+    border-radius: .5rem;
+    padding: .8rem 3rem;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: var(--green);
+    letter-spacing: .1rem;
+}
+
+
+.sub-heading {
+    text-align: center; 
+    color: var(--green);
+    font-size: 2rem;
+    padding-top: 1rem;
+}
+
+.heading {
+    text-align: center; 
+    color: var(--black);
+    font-size: 3rem;
+    padding-bottom: 2rem;
+    text-transform: uppercase;
+}
+
 header .logo {
     color: var(--black);
     font-size: 2.5rem;
     font-weight: bolder;
-    text-decoration: none;
 }
 
 header .logo i {
@@ -53,7 +94,6 @@ header .navbar a {
     border-radius: .5rem;
     padding: .5rem 1.5rem;
     color: var(--light-color);
-    text-decoration: none;
     transition: all .2s linear;
 }
 
@@ -84,53 +124,6 @@ header .icons i:hover {
 
 header .icons #menu-bars {
     display: none;
-}
-
-
-
-/* Media Queries*/
-@media (max-width:991px) {
-
-    html {
-        font-size: 50%;
-    }
-
-    header {
-        padding: 1rem 2rem;
-    }
-    
-}
-
-@media (max-width:768px) {
-
-    header .icons #menu-bars {
-        display: inline-block;
-    }
-
-
-    header .navbar {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        border-top: .1rem solid rgba(0,0,0,.2);
-        border-bottom: .1rem solid rgba(0,0,0,.2);
-        padding: 1rem;
-        clip-path: polygon(0 0,100% 0,100% 0,0 0);
-    }
-
-    header .navbar.active {
-        transition: all .2s linear;
-        clip-path: polygon(0 0,100% 0,100% 100%,0 100%);
-    }
-
-    header .navbar a {
-        display: block;
-        padding: 1.5rem;
-        margin: 1rem;
-        font-size: 2rem;
-        background-color: #eee;
-    }
 }
 
 #search-box {
@@ -188,5 +181,203 @@ header .icons #menu-bars {
     color: var(--green);
 }
 
+/* Header ends */
+
+/* Home Section start */
+
+.home  .home-slider .slide {
+    display: flex;
+    align-items: center;
+    padding-top: 9rem;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.home  .home-slider .slide .content {
+    flex: 1 1 45rem;
+}
+
+.home  .home-slider .slide .image {
+    flex: 1 1 45rem;
+}
+
+.home  .home-slider .slide .image img {
+    width: 100%;
+    transform-origin: center;
+    animation: dishRotate 120s linear  infinite;
+}
 
 
+@keyframes dishRotate {
+
+    100% {
+        transform: rotate(360deg);
+    }
+    
+}
+
+.home  .home-slider .slide .content span {
+    color: var(--green);
+    font-size: 2.5rem;
+    text-transform: capitalize;
+}
+
+.home  .home-slider .slide .content h3 {
+    color: var(--black);
+    font-size: 7rem;
+    text-transform: capitalize;
+}
+
+.home  .home-slider .slide .content p {
+    color: var(--light-color);
+    font-size: 2.5rem;
+    line-height: 1.5;
+    padding: .5rem 0;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: var(--green);
+}
+
+/* Home section ends */
+
+
+/* Dishes section start */
+
+.dishes .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(28rem,1fr));
+    gap: 1.5rem;
+
+}
+
+.dishes .box-container .box {
+    padding: 2.5rem;
+    background-color: #fff;
+    border: .1rem solid rgba(0, 0, 0,.2);
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    
+}
+
+.dishes .box-container .box .fa-heart,
+.dishes .box-container .box .fa-eye {
+    position: absolute;
+    top:1.5rem;
+    background-color: #eee;
+    border-radius: 50%;
+    height: 5rem;
+    width: 5rem;
+    line-height: 5rem;
+    font-size: 2rem;
+    color: var(--black);
+    transition: all .1s linear;
+
+}
+
+.dishes .box-container .box .fa-heart:hover,
+.dishes .box-container .box .fa-eye:hover {
+    background-color: var(--green);
+    color: #fff;
+}
+
+.dishes .box-container .box .fa-heart  {
+    right: -15rem;
+}
+
+.dishes .box-container .box .fa-eye  {
+    left: -15rem;
+}
+
+.dishes .box-container .box:hover .fa-heart  {
+    right: 1.5rem;
+}
+
+.dishes .box-container .box:hover .fa-eye  {
+    left: 1.5rem;
+}
+
+.dishes .box-container .box img {
+    width: 100%;
+    height: auto;
+    margin: 2rem 0;
+}
+
+.dishes .box-container .box h3 {
+    color: var(--black);
+    font-size: 2.5rem;
+    text-transform: capitalize;
+}
+
+.dishes .box-container .box .stars {
+    padding: 1rem 0;
+}
+
+.dishes .box-container .box .stars i {
+    font-size: 1.7rem;
+    color: var(--green);
+}
+
+.dishes .box-container .box span {
+    color: var(--green);
+    font-size: 2.5rem;
+    font-weight: bolder;
+    margin: 1rem;
+}
+
+
+/* Dishes section ends */
+
+
+
+/* Media Queries*/
+@media (max-width:991px) {
+
+
+    .dishes .box-container .box img {
+        width: 100%;
+        height: auto;
+        
+    }
+
+    header {
+        padding: 1rem 2rem;
+    }
+    
+}
+
+@media (max-width:768px) {
+
+    header .icons #menu-bars {
+        display: inline-block;
+    }
+
+    header .navbar {
+        background-color: #fff;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        border-top: .1rem solid rgba(0,0,0,.2);
+        border-bottom: .1rem solid rgba(0,0,0,.2);
+        padding: 1rem;
+        clip-path: polygon(0 0,100% 0,100% 0,0 0);
+    }
+
+    header .navbar.active {
+        transition: all .2s linear;
+        clip-path: polygon(0 0,100% 0,100% 100%,0 100%);
+    }
+
+    header .navbar a {
+        display: block;
+        padding: 1.5rem;
+        margin: 1rem;
+        font-size: 2rem;
+        background-color: #eee;
+    }
+}
